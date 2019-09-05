@@ -1,0 +1,9 @@
+<h1><%=@post.title%></h1>
+<h4>By: <%=link_to @author.name, blogger_path(@author.id)%></h4>
+<h4>Destination: <%=link_to @destination.name, destination_path(@destination.id)%>
+<p><%=@post.content%></p>
+<p>Likes: <%=@post.likes%></p>
+<%=form_with(url: "/like", method: "post") do |f| %>
+<%=f.hidden_field :id, :value => @post.id%>
+<%=f.submit "Like"%>
+<%end%>
